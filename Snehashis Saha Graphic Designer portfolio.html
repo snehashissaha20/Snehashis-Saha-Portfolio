@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snehashis Saha | Visual & Graphic Designer</title>
+    <meta name="description" content="Portfolio of Snehashis Saha, a Graphic Designer specializing in Brand Identity, Social Media Creatives, and Print Design.">
+    
+    <!-- Google Fonts: Syne (Artistic/Display) & Inter (Clean/Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --bg-color: #0f0f0f;
+            --surface-color: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+            --accent-color: #D4F259;
+            --border-color: #333333;
+            
+            --font-display: 'Syne', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --container-width: 1300px;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* --- RESET & BASE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
+        img { display: block; width: 100%; height: auto; }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .display-text {
+            font-family: var(--font-display);
+            font-weight: 800;
+            line-height: 0.95;
+            text-transform: uppercase;
+        }
+
+        .section-padding { padding: 100px 0; } /* Reduced slightly for mobile */
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: var(--accent-color);
+            color: var(--bg-color);
+            border: 2px solid var(--accent-color);
+        }
+        
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--accent-color);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--text-primary);
+            color: var(--bg-color);
+        }
+
+        /* --- BACKGROUND GRID EFFECT --- */
+        .bg-grid {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- HEADER --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 100;
+            transition: var(--transition);
+            mix-blend-mode: difference;
+            background: transparent;
+        }
+
+        header.scrolled {
+            background: rgba(15, 15, 15, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            mix-blend-mode: normal;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: -0.5px;
+            z-index: 101;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            position: relative;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; left: 0; width: 0; height: 1px;
+            background: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+
+        .mobile-menu-btn { 
+            display: none; 
+            font-size: 1.5rem; 
+            cursor: pointer; 
+            z-index: 101;
+            color: var(--text-primary);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 5.5rem);
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            line-height: 1;
+        }
+
+        .hero h1 span {
+            color: transparent;
+            -webkit-text-stroke: 1px var(--text-primary);
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 30px;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 20px;
+        }
+
+        .hero-bio {
+            font-size: 1rem;
+            color: #aaa;
+            margin-bottom: 30px;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-visual {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 350px;
+            height: 450px;
+            z-index: 1;
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            display: none; /* Hidden on mobile initially */
+        }
+
+        .hero-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: var(--transition);
+        }
+
+        .hero:hover .hero-visual img {
+            filter: grayscale(0%);
+        }
+
+        /* --- TOOLS / SOFTWARE MARQUEE --- */
+        .tools-marquee {
+            background: var(--surface-color);
+            padding: 25px 0;
+            overflow: hidden;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: scroll 20s linear infinite;
+        }
+
+        .marquee-content span {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin: 0 40px;
+            text-transform: uppercase;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- PORTFOLIO GALLERY --- */
+        .portfolio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .portfolio-filters button {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: var(--font-body);
+            margin-left: 8px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .portfolio-filters button.active,
+        .portfolio-filters button:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+            border-color: var(--accent-color);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 4/3; /* Consistent shape */
+        }
+        
+        /* Allow height to vary if needed by removing aspect-ratio, 
+           but fixed aspect-ratio is better for grid alignment */
+        .project-card.wide {
+            aspect-ratio: auto;
+        }
+
+        .project-card a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .project-info {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 25px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+            pointer-events: none; /* Allow click to pass through */
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-card:hover .project-info {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-cat {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .project-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        /* --- LIGHTBOX (MODAL) --- */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.95);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+        }
+
+        .lightbox img {
+            width: 100%;
+            height: auto;
+            max-height: 85vh;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            object-fit: contain;
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: #fff;
+            font-size: 2.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .close-lightbox:hover {
+            color: var(--accent-color);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* --- SERVICES --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1px;
+            background: var(--border-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .service-item {
+            background: var(--bg-color);
+            padding: 50px 30px;
+            transition: var(--transition);
+        }
+
+        .service-item:hover {
+            background: var(--surface-color);
+        }
+
+        .service-num {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--border-color);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .service-item:hover .service-num {
+            color: var(--accent-color);
+        }
+
+        .service-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-family: var(--font-display);
+        }
+        
+        .service-item p {
+            font-size: 0.95rem;
+        }
+
+        /* --- RESUME SECTION --- */
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .resume-col h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+        }
+
+        .resume-item {
+            position: relative;
+            padding-left: 25px;
+            border-left: 2px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .resume-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            box-shadow: 0 0 0 4px var(--bg-color);
+        }
+
+        .resume-date {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+            display: block;
+            font-weight: 600;
+        }
+
+        .resume-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .resume-item p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* --- CONTACT SECTION --- */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-form input, 
+        .contact-form textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            margin-bottom: 25px;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-bottom-color: var(--accent-color);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn-submit {
+            background: var(--text-primary);
+            color: var(--bg-color);
+            padding: 12px 30px;
+            font-family: var(--font-display);
+            font-weight: 700;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-submit:hover {
+            background: var(--accent-color);
+        }
+
+        .contact-details h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 30px;
+        }
+
+        .email-link {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+        }
+        
+        .email-link:hover {
+            color: var(--accent-color);
+            border-color: transparent;
+        }
+        
+        .contact-info-item {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+        
+        .contact-info-item i {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: 80px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* --- ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        
+        /* Tablet & Mobile */
+        @media (max-width: 1024px) {
+            .hero-visual { display: none; }
+            .resume-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .section-padding { padding: 80px 0; }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                width: 70%;
+                background: var(--surface-color);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transform: translateX(100%);
+                transition: transform 0.4s ease-in-out;
+                border-left: 1px solid var(--border-color);
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .mobile-menu-btn { display: block; }
+            
+            .hero { align-items: center; text-align: center; }
+            .hero-content { padding: 0 15px; }
+            .hero-subtitle { 
+                border-left: none; 
+                padding-left: 0; 
+                margin: 0 auto 20px; 
+                justify-content: center;
+                border-bottom: 3px solid var(--accent-color);
+                display: inline-block;
+                padding-bottom: 10px;
+            }
+            .hero-btns { justify-content: center; }
+            
+            .contact-layout { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+            
+            .portfolio-filters {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+            .portfolio-filters button { margin: 5px; }
+            
+            .portfolio-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-grid"></div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">SNEHASHIS<span style="color:var(--accent-color)">.DESIGN</span></a>
+            
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#work" onclick="toggleMenu()">Work</a></li>
+                    <li><a href="#services" onclick="toggleMenu()">Services</a></li>
+                    <li><a href="#resume" onclick="toggleMenu()">Resume</a></li>
+                    <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="mobile-menu-btn" id="mobileBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content reveal">
+                <p class="hero-subtitle">Snehashis Saha</p>
+                <h1 class="display-text">Visual & Graphic <br><span>Designer</span></h1>
+                
+                <p class="hero-bio">
+                    I craft memorable brand identities, high-impact marketing visuals, and print layouts. My work focuses on visual storytelling, clarity, and brand consistency.
+                </p>
+                
+                <!-- Hero Buttons -->
+                <div class="hero-btns">
+                    <a href="#work" class="btn btn-primary">View Portfolio</a>
+                    <a href="resume.pdf" download class="btn btn-outline">Download CV</a>
+                </div>
+            </div>
+            <div class="hero-visual reveal">
+                <img src="https://picsum.photos/seed/snehashis/400/600" alt="Snehashis Design">
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Marquee -->
+    <div class="tools-marquee">
+        <div class="marquee-content">
+            <span>Adobe Photoshop</span> • <span>Adobe Illustrator</span> • <span>Figma</span> • <span>InDesign</span> • <span>Brand Identity</span> • <span>Typography</span> • 
+            <span>Adobe Photoshop</span> • <span>Adobe Illustrator</span> • <span>Figma</span> • <span>InDesign</span> • <span>Brand Identity</span> • <span>Typography</span> •
+        </div>
+    </div>
+
+    <!-- Portfolio Section -->
+    <section id="work" class="section-padding">
+        <div class="container">
+            <div class="portfolio-header reveal">
+                <h2 class="display-text" style="font-size: 2.5rem;">Selected Works</h2>
+                <div class="portfolio-filters">
+                    <button class="active" onclick="filterGallery('all', this)">All</button>
+                    <button onclick="filterGallery('branding', this)">Branding</button>
+                    <button onclick="filterGallery('print', this)">Print</button>
+                    <button onclick="filterGallery('digital', this)">Digital</button>
+                </div>
+            </div>
+
+            <div class="gallery-grid" id="gallery">
+                
+                <!-- ITEM 1: Image (Clickable for Lightbox) -->
+                <div class="project-card reveal" data-category="branding">
+                    <img src="https://jittery-teal-qoicadrx2w.edgeone.app/New%20Project%20(10).png" 
+                         alt="Creative Campaign" referrerpolicy="no-referrer">
+                    <div class="project-info">
+                        <span class="project-cat">Branding</span>
+                        <h3 class="project-title">Creative Campaign</h3>
+                    </div>
+                </div>
+
+                <!-- ITEM 2: Image -->
+                <div class="project-card reveal" data-category="digital">
+                    <img src="https://unfortunate-peach-zwb3ks1xmq.edgeone.app/Friday%20EDM%209_1_2026%20Final.jpg" 
+                         alt="Friday Promo" referrerpolicy="no-referrer">
+                    <div class="project-info">
+                        <span class="project-cat">Digital Marketing</span>
+                        <h3 class="project-title">Friday Night Promo</h3>
+                    </div>
+                </div>
+
+                <!-- ITEM 3: Image -->
+                <div class="project-card reveal" data-category="digital">
+                    <img src="https://enthusiastic-cyan-bmmtghkwn1.edgeone.app/Orange%20and%20White%20Minimal%20Republic%20Day%20Social%20Media%20Graphic.png" 
+                         alt="Republic Day" referrerpolicy="no-referrer">
+                    <div class="project-info">
+                        <span class="project-cat">Social Media</span>
+                        <h3 class="project-title">Republic Day Special</h3>
+                    </div>
+                </div>
+
+                <!-- ITEM 4: Image -->
+                <div class="project-card reveal" data-category="branding">
+                    <img src="https://overwhelming-coral-wo9wvggezx.edgeone.app/Hyderabad%20Assesment%20Test%20Design%201A%203.png" 
+                         alt="Visual Identity" referrerpolicy="no-referrer">
+                    <div class="project-info">
+                        <span class="project-cat">Branding</span>
+                        <h3 class="project-title">Visual Identity</h3>
+                    </div>
+                </div>
+
+                <!-- ITEM 5: Image -->
+                <div class="project-card reveal" data-category="digital">
+                    <img src="https://internal-maroon-3i87tvt20x.edgeone.app/Hyderabad%20Assesment%202%20(5).png" 
+                         alt="Facebook Ad" referrerpolicy="no-referrer">
+                    <div class="project-info">
+                        <span class="project-cat">Social Media</span>
+                        <h3 class="project-title">Facebook Ad Campaign</h3>
+                    </div>
+                </div>
+
+                <!-- ITEM 6: Image -->
+                <div class="project-card reveal" data-category="digital">
+                    <img src="https://panicky-blush-g9yajh76wo.edgeone.app/Hyderabad%20Assesment%20(5).jpg" 
+                         alt="Concept" referrerpolicy="no-referrer">
+                    <div class="project-info">
+                        <span class="project-cat">Digital</span>
+                        <h3 class="project-title">Creative Concept</h3>
+                    </div>
+                </div>
+
+                <!-- ITEM 7: Image -->
+                <div class="project-card reveal" data-category="print">
+                    <img src="https://uninterested-teal-jygy1rbj20.edgeone.app/Editorial%20project.png" 
+                         alt="Editorial Project" 
+                         referrerpolicy="no-referrer">
+                    <div class="project-info">
+                        <span class="project-cat">Print / Editorial</span>
+                        <h3 class="project-title">Magazine Layout</h3>
+                    </div>
+                </div>
+
+                <!-- ITEM 8: PDF (Opens in New Tab) -->
+                <div class="project-card reveal" data-category="print">
+                    <a href="https://fantastic-brown-bi2dmqmite.edgeone.app/Design%20Reseach%20Digest%201_Apr_24_compressed.pdf" target="_blank" rel="noopener noreferrer">
+                        <img src="https://eldest-red-pmf0e6cwya.edgeone.app/Design%20Reseach%20Digest%20Front%20Cover.png" 
+                             alt="Design Research Digest" 
+                             referrerpolicy="no-referrer">
+                        <div class="project-info">
+                            <span class="project-cat">Print / Magazine</span>
+                            <h3 class="project-title">Design Research Digest</h3>
+                            <div style="margin-top:10px; font-size:0.8rem; color:white; font-weight:600;">
+                                <i class="fas fa-external-link-alt"></i> View PDF
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- ITEM 9: PDF (Opens in New Tab) -->
+                <div class="project-card reveal" data-category="print">
+                    <a href="https://assistant-brown-d9pandnhig.edgeone.app/S-Cube%20Brochure_240906_191055%20(1).pdf" target="_blank" rel="noopener noreferrer">
+                        <img src="https://ideal-magenta-asqu33awkg.edgeone.app/S-Cube%20Brochure%20Front%20Page.png" 
+                             alt="S-Cube Brochure" 
+                             referrerpolicy="no-referrer">
+                        <div class="project-info">
+                            <span class="project-cat">Print / Brochure</span>
+                            <h3 class="project-title">S-Cube Consultancy</h3>
+                            <div style="margin-top:10px; font-size:0.8rem; color:white; font-weight:600;">
+                                <i class="fas fa-external-link-alt"></i> View PDF
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Overlay -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="close-lightbox">&times;</span>
+            <img id="lightbox-img" src="" alt="Full size">
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding" style="background: var(--surface-color);">
+        <div class="container">
+            <h2 class="display-text reveal" style="font-size: 2.5rem; margin-bottom: 50px;">Design Services</h2>
+            <div class="services-grid reveal">
+                <div class="service-item">
+                    <div class="service-num">01</div>
+                    <h3>Brand Identity</h3>
+                    <p>Logo design, color systems, typography, and visual guidelines that define who you are.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-num">02</div>
+                    <h3>Digital Marketing Creatives</h3>
+                    <p>High-converting social media posts, EDMs, banners, and ad designs for campaigns.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-num">03</div>
+                    <h3>Print & Editorial</h3>
+                    <p>Brochures, magazines, posters, and packaging designed with a focus on layout and print quality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="section-padding">
+        <div class="container">
+            <div class="portfolio-header reveal">
+                <h2 class="display-text" style="font-size: 2.5rem;">Experience</h2>
+                <a href="resume.pdf" download class="btn btn-primary">Download CV <i class="fas fa-download"></i></a>
+            </div>
+
+            <div class="resume-grid reveal">
+                <!-- Experience Column -->
+                <div class="resume-col">
+                    <h3>Work History</h3>
+                    
+                    <div class="resume-item">
+                        <span class="resume-date">July 2024 - Present</span>
+                        <h4>Digital Marketing Executive</h4>
+                        <p>S-Cube Consultancy Services</p>
+                        <p style="margin-top:10px; color:#666;">Designed social media creatives, banners, EDMs, and brochures. Maintained visual consistency.</p>
+                    </div>
+
+                    <div class="resume-item">
+                        <span class="resume-date">Dec 2023 - Mar 2024</span>
+                        <h4>Media and Graphic Designer</h4>
+                        <p>Design Research Council of India</p>
+                        <p style="margin-top:10px; color:#666;">Created E-magazines for branding. Designed social media visuals for course promotion.</p>
+                    </div>
+
+                    <div class="resume-item">
+                        <span class="resume-date">Aug 2023 - Sep 2023</span>
+                        <h4>Graphic & Web Designer</h4>
+                        <p>CodSoft</p>
+                        <p style="margin-top:10px; color:#666;">Designed restaurant websites and e-commerce interfaces with intuitive navigation.</p>
+                    </div>
+                </div>
+
+                <!-- Education Column -->
+                <div class="resume-col">
+                    <h3>Education</h3>
+                    
+                    <div class="resume-item">
+                        <span class="resume-date">April 2025 - Oct 2025</span>
+                        <h4>UI/UX Design Certification</h4>
+                        <p>Tutedude</p>
+                    </div>
+
+                    <div class="resume-item">
+                        <span class="resume-date">2019 - 2022</span>
+                        <h4>Bachelor of Commerce (BCom)</h4>
+                        <p>University of Calcutta</p>
+                    </div>
+
+                    <div class="resume-item">
+                        <span class="resume-date">2023</span>
+                        <h4>Wordpress Certification</h4>
+                        <p>Internshala Trainings</p>
+                    </div>
+
+                    <div class="resume-item">
+                        <span class="resume-date">2023</span>
+                        <h4>Diploma in UI/UX & Web Design</h4>
+                        <p>Drona Seeker</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="contact-layout">
+                <div class="contact-details reveal">
+                    <h2 class="display-text">Let's Create Together</h2>
+                    <p style="color:var(--text-secondary); margin-bottom: 40px; font-size: 1rem; max-width: 400px;">
+                        I am currently open to freelance projects and full-time opportunities in Graphic Design, Branding, and Creative Direction.
+                    </p>
+                    
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>West Bengal, India</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>aaakashsaha2001@gmail.com</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 93301 99588</span>
+                    </div>
+
+                    <div style="margin-top: 40px; display: flex; gap: 20px;">
+                        <a href="https://www.linkedin.com/in/snehashis-saha-208355191" target="_blank" style="font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.behance.net/snehashissaha" target="_blank" style="font-size: 1.5rem;"><i class="fab fa-behance"></i></a>
+                    </div>
+                </div>
+
+                <form class="contact-form reveal" onsubmit="event.preventDefault(); alert('Thank you for your message!');">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Tell me about your design needs" required></textarea>
+                    <button type="submit" class="btn-submit">Send Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Snehashis Saha. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // 1. Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // 2. Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 100;
+            revealElements.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // 3. Gallery Filtering
+        function filterGallery(category, btn) {
+            const buttons = document.querySelectorAll('.portfolio-filters button');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const items = document.querySelectorAll('.project-card');
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block';
+                    setTimeout(() => item.style.opacity = '1', 10);
+                } else {
+                    item.style.opacity = '0';
+                    setTimeout(() => item.style.display = 'none', 300);
+                }
+            });
+        }
+
+        // 4. Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobileBtn');
+        const navLinks = document.getElementById('navLinks');
+        const icon = mobileBtn.querySelector('i');
+
+        mobileBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            if(navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        function toggleMenu() {
+            if(window.innerWidth <= 768) {
+                navLinks.classList.remove('active');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        // 5. Lightbox (Project Hover/Overlay)
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.close-lightbox');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        // Function to open lightbox
+        function openLightbox(src) {
+            lightboxImg.src = src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        // Function to close lightbox
+        function closeLightboxFunc() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+            setTimeout(() => { lightboxImg.src = ''; }, 300); // Clear src after fade out
+        }
+
+        // Add Click Events to Project Cards
+        projectCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                // Check if the clicked element (or its parent) is a link (for PDFs)
+                const link = e.target.closest('a');
+                
+                // If it is a link, let the browser handle it (open new tab)
+                if(link) return;
+
+                // Otherwise, it's an image, so open the lightbox
+                const img = card.querySelector('img');
+                if(img) {
+                    openLightbox(img.src);
+                }
+            });
+        });
+
+        // Close Lightbox Events
+        closeBtn.addEventListener('click', closeLightboxFunc);
+        
+        // Close when clicking outside the image
+        lightbox.addEventListener('click', (e) => {
+            if(e.target === lightbox) {
+                closeLightboxFunc();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightboxFunc();
+            }
+        });
+
+    </script>
+</body>
+</html>
